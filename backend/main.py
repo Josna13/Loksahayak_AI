@@ -29,7 +29,52 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load .env if present
+env_file = os.path.join(os.path.dirname(__file__), ".env")
+if not os.path.exists(env_file):
+    env_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+if os.path.exists(env_file):
+    with open(env_file, "r", encoding="utf-8") as f:
+        for line in f:
+            if "=" in line and not line.strip().startswith("#"):
+                k, v = line.strip().split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+
+def call_gemini_api(prompt: str, context: str, lang: str):
+    if not GEMINI_API_KEY:
+        return None
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+    lang_name = "Marathi" if lang == "mr" else "Hindi" if lang == "hi" else "English"
+    sys_instruction = (
+        f"You are LOKORITHM, an AI Citizen Services Assistant for Maharashtra State & Central Government public welfare. "
+        f"Answer the citizen inquiry politely and concisely in {lang_name}. "
+        f"Ground your answer strictly on verified Maharashtra Government rules (Aaple Sarkar, WCD Maharashtra, MahaDBT). "
+        f"Never fabricate deadlines, fees, or official links. "
+        f"Context from database: {context}"
+    )
+    payload = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": f"{sys_instruction}\n\nCitizen Question: {prompt}"}
+                ]
+            }
+        ],
+        "generationConfig": {
+            "temperature": 0.2,
+            "maxOutputTokens": 600
+        }
+    }
+    try:
+        res = requests.post(url, json=payload, timeout=6)
+        if res.status_code == 200:
+            data = res.json()
+            return data["candidates"][0]["content"]["parts"][0]["text"]
+    except Exception as e:
+        print("Gemini API call failed, falling back to local grounded knowledge:", e)
+    return None
 
 # ----------------- Models -----------------
 
@@ -700,6 +745,18 @@ def assistant_chat(body: ChatMessage):
                 "- *What are the loan limits under PM MUDRA Yojana?*"
             )
             next_step = "Try selecting one of the suggested service questions or explore the Smart Scheme Finder."
+
+    # Dynamic LLM Enhancement using live Gemini 2.5 Flash if available
+    context_str = ""
+    if matched_scheme:
+        context_str = f"Scheme: {matched_scheme['title']}. Eligibility: {matched_scheme['eligibility_summary']}. Docs: {matched_scheme['required_docs']}."
+    elif matched_service:
+        context_str = f"Service: {matched_service['title']}. Process: {matched_service['process_steps']}. Docs: {matched_service['required_docs']}."
+    
+    if context_str:
+        gemini_enhanced = call_gemini_api(user_query, context_str, lang)
+        if gemini_enhanced:
+            answer = gemini_enhanced
 
     return {
         "answer": answer,
