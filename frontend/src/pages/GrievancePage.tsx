@@ -504,7 +504,7 @@ export const GrievancePage: React.FC<GrievancePageProps> = ({ language, initialT
                         className="mt-0.5 rounded text-gov-navy focus:ring-gov-navy border-gov-border"
                       />
                       <span className="text-xs text-slate-600">
-                        I confirm that this grievance is submitted for the <strong>Seva Innovation Challenge 2026</strong> prototype demonstration. No classified or unauthorized personal data has been submitted.
+                        I confirm that the details provided in this public grievance are accurate to the best of my knowledge. No classified or confidential personal data has been submitted.
                       </span>
                     </label>
                     {errors.consent && <p className="text-[11px] text-gov-red mt-1">{errors.consent}</p>}

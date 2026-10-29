@@ -28,13 +28,8 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigate }) => {
               <span className="text-[10px] bg-gov-orange text-white px-2 py-0.5 rounded font-bold">2026</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
-              AI-Powered Citizen Services and Smart Governance. Built for the Seva Innovation Challenge 2026 under the Women Category & Emerging Technologies.
+              AI-Powered Citizen Services and Smart Governance for Maharashtra State Public Welfare & Administrative Excellence.
             </p>
-            <div className="pt-2">
-              <span className="inline-block text-[11px] bg-slate-800/80 border border-slate-700 text-amber-300 px-2 py-1 rounded">
-                Prototype — Demonstration Only
-              </span>
-            </div>
           </div>
 
           {/* Citizen Modules */}
@@ -114,7 +109,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigate }) => {
         {/* Bottom Bar */}
         <div className="mt-10 pt-6 border-t border-slate-800 text-xs text-slate-400 flex flex-col md:flex-row items-center justify-between gap-4">
           <p>
-            © 2026 LOKORITHM Prototype. Not an official government website. Built for evaluation in Seva Innovation Challenge.
+            © 2026 LOKORITHM. Citizen Services & Smart Governance Platform.
           </p>
           <div className="flex items-center gap-4 text-[11px]">
             <span className="flex items-center gap-1 text-slate-300">

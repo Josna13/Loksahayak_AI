@@ -4,8 +4,8 @@ export const translations: Record<Language, Record<string, string>> = {
   en: {
     appName: "LOKORITHM",
     appTagline: "One Platform. Smarter Services. Transparent Governance.",
-    protoBadge: "Innovation Challenge Prototype — Demonstration Only",
-    sectorBadge: "Seva Innovation Challenge 2026 • Women Category • Emerging Tech",
+    protoBadge: "Aaple Sarkar • Citizen Services",
+    sectorBadge: "Government of Maharashtra • Women Empowerment",
     
     // Nav
     navHome: "Home",
@@ -80,8 +80,8 @@ export const translations: Record<Language, Record<string, string>> = {
   mr: {
     appName: "लोगोरिदम (LOKORITHM)",
     appTagline: "एकच व्यासपीठ. स्मार्ट सेवा. पारदर्शक शासन.",
-    protoBadge: "इनोव्हेशन चॅलेंज प्रोटोटाइप — केवळ प्रात्यक्षिकासाठी",
-    sectorBadge: "सेवा इनोव्हेशन चॅलेंज २०२६ • महिला प्रवर्ग • प्रगत तंत्रज्ञान",
+    protoBadge: "आपले सरकार • नागरिक सेवा",
+    sectorBadge: "महाराष्ट्र शासन • महिला सक्षमीकरण",
     
     navHome: "मुख्यपृष्ठ",
     navAssistant: "एआय नागरिक सहाय्यक",
@@ -149,8 +149,8 @@ export const translations: Record<Language, Record<string, string>> = {
   hi: {
     appName: "लोगोरिदम (LOKORITHM)",
     appTagline: "एक मंच। स्मार्ट सेवाएं। पारदर्शी सुशासन।",
-    protoBadge: "इनोवेशन चैलेंज प्रोटोटाइप — केवल प्रदर्शन हेतु",
-    sectorBadge: "सेवा इनोवेशन चैलेंज 2026 • महिला वर्ग • उभरती तकनीक",
+    protoBadge: "आपले सरकार • नागरिक सेवाएं",
+    sectorBadge: "महाराष्ट्र शासन • महिला सशक्तिकरण",
     
     navHome: "होम",
     navAssistant: "एआई नागरिक सहायक",

@@ -66,11 +66,6 @@ export const HomePage: React.FC<HomePageProps> = ({ language, onNavigate }) => {
             
             {/* Left Hero Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 bg-gov-orange-light border border-gov-orange/30 text-gov-orange-dark px-3 py-1 rounded-full text-xs font-bold tracking-wide">
-                <Award className="w-3.5 h-3.5 text-gov-orange" />
-                <span>Seva Innovation Challenge 2026 • Women Category</span>
-              </div>
-
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gov-navy leading-tight tracking-tight">
                 {t.heroTitle}
               </h1>
@@ -221,7 +216,7 @@ export const HomePage: React.FC<HomePageProps> = ({ language, onNavigate }) => {
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-2xl">
               <span className="bg-gov-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
-                Seva Innovation Challenge • Women Category Focus
+                Women Welfare & Citizen Empowerment Focus
               </span>
               <h2 className="text-xl sm:text-2xl font-black text-white">
                 Empowering Maharashtra's Women through Targeted Smart Governance

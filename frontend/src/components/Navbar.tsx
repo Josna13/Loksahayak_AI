@@ -39,17 +39,13 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Tricolor Government Ribbon */}
       <div className="h-1.5 w-full bg-gradient-to-r from-gov-orange via-white to-gov-green" />
 
-      {/* Official Prototype Announcement Bar */}
+      {/* Top Government Bar */}
       <div className="bg-gov-navy text-white text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2 font-medium">
-            <span className="bg-gov-orange text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wider">
-              {t.protoBadge}
-            </span>
-            <span className="hidden sm:inline text-slate-300">|</span>
-            <span className="hidden md:inline text-slate-200">
-              {t.sectorBadge}
-            </span>
+          <div className="flex items-center gap-2 font-medium text-slate-300 text-[11px]">
+            <span className="font-semibold text-white">Government of Maharashtra</span>
+            <span className="text-slate-500">•</span>
+            <span>Citizen Services & Smart Governance Portal</span>
           </div>
           
           <div className="flex items-center gap-3">
